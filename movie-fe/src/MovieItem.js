@@ -4,7 +4,6 @@ import gql from 'graphql-tag'
 const MovieItem = ({ movie }) => (
   <li>
     {movie.name} | {movie.rating}
-    <ActorList actors={movie.actors} />
   </li>
 )
 
@@ -14,7 +13,6 @@ export const MovieItemFragments = {
       id
       name
       rating
-      ...ActorList
     }
   `
 }
