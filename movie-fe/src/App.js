@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import MovieList from './MovieList'
+import CreateMovieForm from './CreateMovieForm'
 
 class App extends Component {
   render() {
-    return <MovieList />
+    return (
+      <div>
+        <MovieList />
+        <CreateMovieForm />
+      </div>
+    )
   }
 }
 

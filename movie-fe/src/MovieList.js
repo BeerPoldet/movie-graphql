@@ -1,15 +1,15 @@
 import React from 'react'
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
+import MovieItem, { MovieItemFragments } from './MovieItem'
 
-const MoviesQuery = gql`
+export const MoviesQuery = gql`
   query {
     allMovies {
-      id
-      name
-      rating
+      ...MovieItem
     }
   }
+  ${MovieItemFragments.movie}
 `
 
 const MovieList = props => {
@@ -20,9 +20,7 @@ const MovieList = props => {
   return (
     <ul>
       {movies.map(movie => (
-        <li key={movie.id}>
-          {movie.name} | {movie.rating}
-        </li>
+        <MovieItem key={movie.id} movie={movie} />
       ))}
     </ul>
   )
