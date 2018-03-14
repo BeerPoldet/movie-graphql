@@ -4,14 +4,17 @@ import cors from 'cors'
 import express from 'express'
 import { makeExecutableSchema } from 'graphql-tools'
 
+// https://github.com/BeerPoldet/movie-graphql.git
 const typeDefs = `
   type Query {
-    
+    name: String
   }
 `
 
 const resolvers = {
-
+  Query: {
+    name: () => 'Hello World'
+  }
 }
 
 const schema = makeExecutableSchema({
