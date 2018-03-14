@@ -76,7 +76,7 @@ class CreateMovieForm extends React.Component {
 export default graphql(CreateMovieMutation, {
   options: props => ({
     update: (proxy, { data: { createMovie } }) => {
-      const data = proxy.readQuery({ query: MoviesQuery, id })
+      const data = proxy.readQuery({ query: MoviesQuery })
       data.allMovies.push(createMovie)
       proxy.writeQuery({ query: MoviesQuery, data })
     },
